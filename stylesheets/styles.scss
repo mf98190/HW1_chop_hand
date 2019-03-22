@@ -1,0 +1,455 @@
+@import "normalize";
+$main-color: #000;
+$deputy-color: rgb(143, 142, 142);
+%nostyle-list {
+  margin: 0;
+  /**ul本身就有預設margin-top: 1em 而會造成margin collapsing ，為了消除此狀況因此重設maregin為 0*/
+  padding: 0;
+  list-style: none;
+}
+
+%transition-hover {
+  transition-property: background;
+  transition-duration: 0.6s;
+}
+
+html {
+  font-size: 16px;
+  font-family: "微軟正黑體", sans-serif;
+  line-height: 1.4;
+  color: $main-color;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: $deputy-color;
+  text-decoration: none;
+  @extend %transition-hover;
+
+  &:hover {
+    color: $deputy-color;
+    text-decoration: underline;
+  }
+}
+
+.container {
+  /*置中容器*/
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.page-header {
+  background: $main-color;
+
+  &-news {
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+  }
+}
+
+.main-menu {
+  .container {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    margin-top: 30px;
+  }
+
+  ul {
+    @extend %nostyle-list;
+  }
+
+  &-item {
+    ul {
+      display: flex;
+      width: 330px;
+    }
+
+    li {
+      flex: 0 0 110px;
+    }
+
+    a {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      font-weight: bold;
+      text-align: center; //文字水平置中
+      text-decoration: none; //文字底線樣式
+      color: $main-color;
+
+      &:hover {
+        background: lighten($deputy-color, 30);
+      }
+    }
+  }
+
+  .name {
+    position: absolute;
+    left: 50%;
+
+    h1 {
+      margin: 0;
+    }
+
+    a {
+      color: $main-color;
+      text-decoration: none; //文字底線樣式
+    }
+  }
+
+  &-other-menu {
+    position: absolute;
+    right: 0%;
+
+    ul {
+      display: flex;
+    }
+
+    li:nth-last-child(1) {
+      margin-left: 20px;
+    }
+
+    a {
+      display: block;
+      height: 35px;
+      width: 35px;
+      line-height: 35px;
+      border-radius: 50%;
+      font-size: 1.3em;
+      text-align: center; //文字水平置中
+      text-decoration: none; //文字底線樣式
+      margin-left: 5px;
+
+      &:hover {
+        outline: none;
+        background: darken(#fff, 10);
+      }
+    }
+  }
+}
+
+.index-image {
+  height: 500px;
+  background: url(../images/head.png) center center no-repeat;
+  background-size: cover;
+
+  .container {
+    position: relative;
+    height: 100%;
+  }
+
+  h2 {
+    font-size: 60px;
+    color: #fff;
+    color: rgba(#fff, 0.8);
+    text-shadow: rgba(#fff, 0.8) 0 0 0, rgba(#000, 0.8) 0 0 12px;
+    position: absolute;
+    margin: 0;
+    top: 20%;
+  }
+}
+
+.index-new-items {
+  padding: 40px 0;
+
+  h2 {
+    margin: 0;
+    font-size: 40px;
+    text-align: center;
+    line-height: 100%;
+    color: $main-color;
+  }
+
+  ul {
+    @extend %nostyle-list;
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  li {
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin: 5px 0;
+    text-align: center;
+
+    &:nth-child(1) {
+      color: $main-color;
+      font-weight: bold;
+    }
+  }
+}
+
+.index-declaration-item {
+  padding: 60px 0;
+  background: $deputy-color;
+  color: #fff;
+
+  h2 {
+    margin: 0;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  p {
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.item-menu {
+  margin: 20px 0;
+
+  .container {
+    width: 900px;
+  }
+
+  ul {
+    @extend %nostyle-list;
+    display: flex;
+  }
+
+  li {
+    margin-right: 6px;
+    height: 25px;
+    line-height: 25px;
+
+    &::after {
+      content: "<";
+      margin-left: 6px;
+    }
+
+    &:nth-last-child(1)::after {
+      content: "";
+    }
+
+    a {
+      color: $main-color;
+    }
+  }
+}
+
+.item-product {
+  margin-top: 50px;
+
+  .container {
+    width: 900px;
+    display: flex;
+  }
+}
+
+.item-product-information {
+  flex: 0 0 500px;
+  margin-right: 30px;;
+
+  img {
+    height: 500px;
+    width: 500px;
+  }
+}
+
+.item-product-right {
+  flex: 1;
+}
+
+.item-product-buy {
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  select {
+    margin-bottom: 20px;
+    border: rgba($deputy-color, 0.8) 0.5px solid;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  input {
+    padding-left: 10px;
+    border: rgba($deputy-color, 0.8) 0.5px solid;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  button {
+    background: $main-color;
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    margin: 20px 0;
+
+    &:hover {
+      background: lighten($main-color, 30);
+    }
+  }
+}
+
+.item-product-recommend {
+  ul {
+    @extend %nostyle-list;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    display: flex;
+    margin-bottom: 20px;
+    color: $main-color;
+  }
+
+  img {
+    margin-right: 20px;
+  }
+
+  &-text {
+    font-size: 20px;
+    align-self: center;
+    flex: 1;
+
+    p {
+      margin: 0 0 10px;
+    }
+  }
+}
+
+.item-change-product {
+  margin: 50px 0;
+
+  .container {
+    width: 900px;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a:nth-child(1) {
+    margin-right: 100px;
+  }
+
+  a:nth-child(1)::before {
+    content: "<";
+    margin-right: 6px;
+  }
+
+  a:nth-last-child(1)::after {
+    content: ">";
+    margin-left: 6px;
+  }
+}
+
+.subscription {
+  padding: 60px 0;
+  background: lighten($deputy-color, 40);
+
+  .container {
+    width: 700px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 40px;
+    text-align: center;
+    color: $main-color;
+  }
+
+  button {
+    background: $main-color;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 0;
+
+    &:hover {
+      background: lighten($main-color, 30);
+    }
+  }
+}
+
+.email {
+  position: relative;
+  margin: 30px 0;
+
+  input {
+    width: 660px;
+    height: 35px;
+    border: none;
+    border-bottom: rgba($deputy-color, 0.6) 1px solid;
+    padding-left: 40px;
+
+    &:focus {
+      outline: none;
+      border-color: $deputy-color;
+      box-shadow: $deputy-color 0 0 5px;
+    }
+  }
+
+  i {
+    font-size: 1.2em;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+  }
+}
+
+.page-footer {
+  .container {
+    width: 600px;
+  }
+
+  &-menu {
+    background: darken($deputy-color, 20);
+  }
+
+  ul {
+    @extend %nostyle-list;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li {
+    flex: 0 0 120px;
+  }
+
+  a {
+    display: block;
+    color: #fff;
+    height: 50px;;
+    line-height: 50px;
+    font-weight: bold;
+    text-align: center; //文字水平置中
+    text-decoration: none; //文字底線樣式
+
+    &:hover {
+      background: lighten($deputy-color, 20);
+      color: $main-color;
+    }
+  }
+
+  .copyright {
+    background: lighten($deputy-color, 30);
+    text-align: center;
+    padding: 15px;
+  }
+}
