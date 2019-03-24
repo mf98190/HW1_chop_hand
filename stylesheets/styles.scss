@@ -471,10 +471,9 @@ a {
 .cart-shoppingList-bottom-totalPrice {
   flex: 1;
   position: relative;
-  height: 200px;
 
   button {
-    position: absolute;
+    display: block;
     bottom: 0;
     right: 0;
     width: 100%;
@@ -483,6 +482,10 @@ a {
     border: none;
     background: $main-color;
     color: #fff;
+
+    &:hover {
+      background: lighten($main-color, 30);
+    }
   }
 }
 
@@ -496,9 +499,13 @@ a {
     justify-content: space-between;
     text-align: end;
   }
+
+  li {
+    margin-bottom: 30px;
+  }
 }
 
-.cart-shoppingList-bottom-totalPrice-price {
+.cart-shoppingList-bottom-totalPrice-fare {
   display: inline-block;
   position: absolute;
   right: 0;
@@ -510,8 +517,23 @@ a {
     justify-content: space-between;
     text-align: end;
   }
+
+  li {
+    margin-bottom: 30px;
+  }
 }
 
+.cart-shoppingList-bottom-totalPrice-price {
+  margin: 30px 0;
+
+  ul {
+    @extend %nostyle-list;
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+    font-size: 25px;
+  }
+}
 
 .subscription {
   padding: 60px 0;

@@ -342,7 +342,7 @@ template {
   display: none;
 }
 
-.main-menu ul, .index-new-items ul, .item-menu ul, .item-product-recommend ul, .cart-shoppingList-name ul, .cart-shoppingList-bottom-totalPrice-text ul, .cart-shoppingList-bottom-totalPrice-price ul, .page-footer ul {
+.main-menu ul, .index-new-items ul, .item-menu ul, .item-product-recommend ul, .cart-shoppingList-name ul, .cart-shoppingList-bottom-totalPrice-text ul, .cart-shoppingList-bottom-totalPrice-fare ul, .cart-shoppingList-bottom-totalPrice-price ul, .page-footer ul {
   margin: 0;
   /**ul本身就有預設margin-top: 1em 而會造成margin collapsing ，為了消除此狀況因此重設maregin為 0*/
   padding: 0;
@@ -856,11 +856,10 @@ a:hover {
       -ms-flex: 1;
           flex: 1;
   position: relative;
-  height: 200px;
 }
 
 .cart-shoppingList-bottom-totalPrice button {
-  position: absolute;
+  display: block;
   bottom: 0;
   right: 0;
   width: 100%;
@@ -869,6 +868,10 @@ a:hover {
   border: none;
   background: #000;
   color: #fff;
+}
+
+.cart-shoppingList-bottom-totalPrice button:hover {
+  background: #4d4d4d;
 }
 
 .cart-shoppingList-bottom-totalPrice-text {
@@ -889,13 +892,17 @@ a:hover {
   text-align: end;
 }
 
-.cart-shoppingList-bottom-totalPrice-price {
+.cart-shoppingList-bottom-totalPrice-text li {
+  margin-bottom: 30px;
+}
+
+.cart-shoppingList-bottom-totalPrice-fare {
   display: inline-block;
   position: absolute;
   right: 0;
 }
 
-.cart-shoppingList-bottom-totalPrice-price ul {
+.cart-shoppingList-bottom-totalPrice-fare ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -907,6 +914,25 @@ a:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   text-align: end;
+}
+
+.cart-shoppingList-bottom-totalPrice-fare li {
+  margin-bottom: 30px;
+}
+
+.cart-shoppingList-bottom-totalPrice-price {
+  margin: 30px 0;
+}
+
+.cart-shoppingList-bottom-totalPrice-price ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: end;
+  font-size: 25px;
 }
 
 .subscription {
